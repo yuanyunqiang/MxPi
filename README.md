@@ -31,6 +31,7 @@ Welcome to MxPi(0.0.xx)!  System:xxxxx   IP: x.x.x.x:xxxx
 ```
 Open IP address ++x.x.x.x:xxxx++ in browser
 
+![image](https://github.com/yuanyunqiang/MxPi/blob/main/img/mxpi.png?raw=true)
 #### 3. Description
 If you use Windows to uninstall or update the latest version of MxPi, the following error will occur
 
