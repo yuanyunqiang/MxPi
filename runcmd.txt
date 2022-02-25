@@ -1,1 +1,1 @@
-sudo daphne app.asgi:django_application -b 192.168.1.129
+sudo daphne app.asgi:django_application
