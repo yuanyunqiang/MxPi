@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Mx-RaspberryPi</title>
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+    
+    <script type="text/javascript" src="{% static 'js/core/base.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/core/blockly_compressed.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/blocks/procedures.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/core/procedures.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/core/blockly.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/core/events.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/core/python_compressed.js' %}"></script>
+    <script src="{% static 'js/generators/python.js' %}"></script>
+    <script src="{% static 'js/zh-hans.js' %}"></script>
+    <script src="{% static 'js/ace/ace.js' %}"></script>
+    <link type="text/css" href="{% static 'css/OverlayScrollbars.css' %}" rel="stylesheet"/>
+    <script type="text/javascript" src="{% static 'js/OverlayScrollbars.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/icheck-material.min.css'  %}" />
+    <link rel="stylesheet" href="{% static 'css/icheck-material-custom.min.css'  %}" />
+    <link rel="stylesheet" href="{% static 'css/input-style.css'  %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css'  %}"/>
+    <link rel="stylesheet" href="{% static 'css/syntaxy.light.min.css'  %}"  id="syntaxy-theme-hook"/>
+    <script type="text/javascript" src="{% static 'js/syntaxy.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/tippy.css' %}">
+    <script src="{% static 'js/tippy.js' %}"></script>  
+    <link href="{% static 'css/popupwindow.css' %}" rel="stylesheet">
+    <script src="{% static 'js/popupwindow.js' %}"></script>   
+    <!--toast-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/spop.css' %}">
+    <script type="text/javascript" src="{% static 'js/spop.js' %}"></script>  
+    <!--fileModel-->
+    <link rel="stylesheet" href="{% static 'js/jquery-ui-11.4/jquery-ui.theme.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-ui-11.4/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/tabulator.js' %}"></script>
+    <script src="{% static 'js/jquery.dm-uploader.min.js' %}"></script>
+    <!--输出-->
+    <script src="{% static 'code/input_code.js' %}"></script>
+    <script src="{% static 'tuxi/input_tx.js' %}"></script>
+    <!--控制-->
+    <script src="{% static 'code/Kongzhi_code.js' %}"></script>
+    <script src="{% static 'tuxi/Kongzhi_tx.js' %}"></script>
+    <!--数学-->
+    <script src="{% static 'code/math_code.js' %}"></script>
+    <script src="{% static 'tuxi/math_tx.js' %}"></script>
+    <!--逻辑-->
+    <script src="{% static 'code/logic_code.js' %}"></script>
+    <script src="{% static 'tuxi/logic_tx.js' %}"></script>
+    <!--文本-->
+    <script src="{% static 'code/text_code.js' %}"></script>
+    <script src="{% static 'tuxi/text_tx.js' %}"></script>
+    <!--列表-->
+    <script src="{% static 'code/list_code.js' %}"></script>
+    <script src="{% static 'tuxi/list_tx.js' %}"></script>
+    <!--元组-->
+    <script src="{% static 'code/tuple_code.js' %}"></script>
+    <script src="{% static 'tuxi/tuple_tx.js' %}"></script>
+    <!--字典-->
+    <script src="{% static 'code/dict_code.js' %}"></script>
+    <script src="{% static 'tuxi/dict_tx.js' %}"></script>
+    <!--集合-->
+    <script src="{% static 'code/catSet_code.js' %}"></script>
+    <script src="{% static 'tuxi/catSet_tx.js' %}"></script>
+    <!--变量-->
+    <script src="{% static 'code/variables_code.js' %}"></script>
+    <script src="{% static 'tuxi/variables_tx.js' %}"></script>
+    <!--函数-->
+    <script src="{% static 'code/procedures.js' %}"></script>
+    <script src="{% static 'code/procedures.js' %}"></script>
+    <script src="{% static 'code/class_code.js' %}"></script>
+    <script src="{% static 'tuxi/class_tx.js' %}"></script>
+    <!--GPIO-->
+    <script src="{% static 'tuxi/GPIO_tx.js' %}"></script>
+    <script src="{% static 'code/GPIO_code.js' %}"></script>
+    <!--pyqt5-->
+    <script src="{% static 'tuxi/gui_pyqt5_tx.js' %}"></script>
+    <script src="{% static 'code/gui_pyqt5_code.js' %}"></script>
+    <!--baiduAI-->
+    <script src="{% static 'tuxi/baiduai_tx.js' %}"></script>
+    <script src="{% static 'code/baiduai_code.js' %}"></script>
+
+    <script src="{% static 'code/myjs.js' %}"></script>
+    <script type="text/javascript" src="{% static 'code/variables.js' %}"></script>
+    <script type="text/javascript" src="{% static 'code/name.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/core/class.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/toolbox_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link href="{% static 'css/jquery.cardtabs.css" rel="stylesheet' %}">
+
+</head>
+<body>
+  <div id="sidebar" class="right-top" onclick="sidecodeClick()" style="visibility: visible;"></div>
+    <div style='display: flex;align-items: center;flex-wrap: nowrap;'>
+        <img src="{% static './img/logo.png' %}" style='width:140px;margin-left: 10px;' alt="MX" >
+        <div style="width: 35%;"><button type="button2" id='connect_server' class="button button-action7 button-box tippy" style="margin-left: 15px;margin-top: 5px;" onclick="connect_server()" title="重新连接"><i class="fa fa-link" aria-hidden="true"></i></button>
+        <button type="button2" onclick="save()" class="button button-action button-box tippy" style="margin-left: 20px;margin-top: 5px;" title="保存项目"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <input type="file" id="files" style="display: none"  onchange="fileImport();">
+        <button type="button2" class="button button-action2 button-box tippy" style="margin-left: 15px;margin-top: 5px;" onclick="open_program()" title="打开项目"><i class="fa fa-upload" aria-hidden="true"></i></button>
+        </div>
+        <div style="width: 35%;text-align: center;color: #fff;fon-size:12px"><p>只顾攀登莫问高——郭沫若</p></div>
+        <div style="width: 35%;text-align: right;margin-right: 20px;">
+        <button id='authormodel' type="button2" class="button button-action8 button-box tippy" style="margin-left: 15px;margin-top: 5px;" title="关于MxPi"><i class="fa fa-exclamation" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    <table  id='blockly_box'>
+        <tbody>
+        <tr>
+          <td id="blocklyArea"></td>
+          <td style="height: 100%; width: 0.4%; background: rgb(221, 221, 221); cursor: w-resize; display: none;" id="mid_td"></td>
+          <td width="25%" valign='top' style="background-color: rgb(238, 238, 238); display: none;" id="side_code_parent">
+            <div style="display: flex;justify-content: space-around;margin-bottom: 5px;">
+                <div class="icheck-material-custom icheck-font">
+                  <input type="radio" id="Dark" name="someGroupName" />
+                  <label for="Dark">Dark</label>
+                </div>
+                <div class="icheck-material-grey icheck-font">
+                    <input type="radio" id="Light" name="someGroupName" checked="checked"/>
+                    <label for="Light">Light</label>
+                </div>
+                <div class="icheck-material-deeppurple icheck-font">
+                  <input type="radio" id="Purple" name="someGroupName" />
+                  <label for="Purple">Purple</label>
+              </div>
+            </div>
+            <div id="side_code" wrap="off" readonly="" class=" ace_editor ace-xcode" style="font-size: 17px;height:94%">
+              <pre id="codebox" style="height:100%" data-type="default"></pre>    
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div><pre id="content_python" class="content prettyprint lang-py"></pre></div>
+    <div>
+    <div id="blocklyDiv" style="position: absolute"></div>
+    <div id="content_arduino" class="content" wrap="off"></div>
+    <div id="side_code" wrap="off" style="padding-bottom: 0px;padding-top: 0px;" readonly></div>
+    <xml id="toolbox-categories" style="display: none">
+        <category name="输 出" css-icon="customIcon fa fa-exchange" categorystyle="print_category">
+          <block type="inout_print">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello world!</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="inout_print_inline">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello world!</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="inout_print_end">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello</field>
+              </shadow>
+            </value>
+            <value name="END">
+              <shadow type="text">
+                <field name="TEXT">,</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="inout_print_many">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="text">
+                <field name="TEXT">Hello</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text">
+                <field name="TEXT">MxPi</field>
+              </block>
+            </value>
+          </block>
+        </category>
+        <category name="控 制"  css-icon="customIcon fa fa-code-fork" categorystyle="loop_category">
+          <block type="time_sleep">
+            <value name="DELAY_TIME">
+              <shadow type="math_number">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="controls_if"></block>
+          <block type="controls_repeat_ext">
+            <value name="TIMES">
+              <shadow type="math_number">
+                <field name="NUM">10</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="controls_whileUntil">
+            <field name="MODE">WHILE</field>
+                <value name="BOOL">
+                  <block type="logic_boolean">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+          </block>
+          <block type="do_while"></block>
+          <block type="controls_pass"></block>
+          <block type="controls_flow_statements"></block>
+          <block type="controls_forEach">
+            <value name="LIST">
+              <shadow type="list_many_input">
+                <field name="CONTENT">0,1,2,3</field>
+              </shadow>
+              <block type="controls_range">
+                <value name="FROM">
+                  <shadow type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                </value>
+                <value name="TO">
+                  <shadow type="math_number">
+                    <field name="NUM">5</field>
+                  </shadow>
+                </value>
+                <value name="STEP">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="VAR">
+              <shadow type="variables_get">
+                <field name="VAR">i</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="controls_try_finally"></block>
+          <block type="controls_thread">
+            <value name="callback">
+              <shadow type="factory_block_return">
+                <field name="VALUE">Thread1</field>
+              </shadow>
+            </value>
+            <value name="VAR">
+              <block type="tuple_create_with_noreturn" inline="true">
+                <mutation items="0"></mutation>
+              </block>
+            </value>
+          </block>
+          <block type="procedures_defnoreturn" inline="false">
+            <field name="NAME">testThread</field>
+            <statement name="STACK">
+              <block type="controls_whileUntil">
+                <field name="MODE">WHILE</field>
+                <value name="BOOL">
+                  <block type="logic_boolean">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="inout_print" inline="false">
+                    <value name="VAR">
+                      <block type="text">
+                        <field name="TEXT">Thread</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="time_sleep">
+                        <value name="DELAY_TIME">
+                          <block type="math_number">
+                            <field name="NUM">10</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </category>
+        <category name="数 学" css-icon="customIcon fa fa-calculator" categorystyle="math_category">
+          <block type="math_number"></block>
+          <block type="math_constant"></block>
+          <block type="math_trig">
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">90</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_to_number">
+            <value name="VAR">
+              <shadow type="variables_get">
+                <field name="VAR">x</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_dec">
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">15</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_arithmetic">
+            <value name="A">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="B">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_bit">
+            <value name="A">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="B">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_selfcalcu">
+            <value name="A">
+              <shadow type="variables_get">
+                <field name="VAR">a</field>
+              </shadow>
+            </value>
+            <value name="B">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_to_int">
+            <value name="A">
+              <shadow type="math_number">
+                <field name="NUM">0.998</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_max_min">
+            <value name="A">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="B">
+              <shadow type="math_number">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_round">
+            <value name="VALUE">
+              <shadow type="math_number">
+                <field name="NUM">4.8</field>
+              </shadow>
+            </value>
+            <value name="VAR">
+              <shadow type="math_number">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_random">
+            <value name="FROM">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="TO">
+              <shadow type="math_number">
+                <field name="NUM">100</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_number_base_conversion">
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">1010</field>
+              </shadow>
+          </block>
+          <block type="math_constrain">
+            <value name="VALUE">
+              <shadow type="math_number">
+                <field name="NUM">1000</field>
+              </shadow>
+            </value>
+            <value name="LOW">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="HIGH">
+              <shadow type="math_number">
+                <field name="NUM">100</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_map">
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">50</field>
+              </shadow>
+            </value>
+            <value name="fromLow">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="fromHigh">
+              <shadow type="math_number">
+                <field name="NUM">100</field>
+              </shadow>
+            </value>
+            <value name="toLow">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="toHigh">
+              <shadow type="math_number">
+                <field name="NUM">1000</field>
+              </shadow>
+            </value>
+          </block>
+        </category>
+        <category name="逻 辑" css-icon="customIcon fa fa-check-square-o" categorystyle="logic_category">
+          <block type="logic_compare"></block>
+          <block type="logic_compare_continous">
+            <value name="A">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="B">
+              <shadow type="variables_get">
+                <field name="VAR">x</field>
+              </shadow>
+            </value>
+            <value name="C">
+              <shadow type="math_number">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="logic_operation"></block>
+          <block type="logic_negate"></block>
+          <block type="logic_boolean"></block>
+          <block type="logic_null"></block>
+          <block type="logic_true_or_false"></block>
+          <block type="logic_is_in">
+            <value name="A">
+              <shadow type="variables_get">
+                <field name="VAR">x</field>
+              </shadow>
+            </value>
+            <value name="B">
+              <shadow type="list_many_input">
+                <field name="CONTENT">0,1,2,3</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="logic_is">
+            <value name="A">
+              <shadow type="list_many_input">
+                <field name="CONTENT">0,1,2,3</field>
+              </shadow>
+            </value>
+            <value name="B">
+              <shadow type="list_many_input">
+                <field name="CONTENT">0,1,2,3</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="logic_tobool">
+            <value name="VAR">
+              <shadow type="variables_get">
+                <field name="VAR">x</field>
+              </shadow>
+            </value>
+          </block>
+        </category>
+        <category name="文 本" css-icon="customIcon fa fa-buysellads" categorystyle="text_category">
+          <block type="text">
+          <field name="TEXT">Hello</field>
+          </block>
+          <block type="text_textarea">
+          </block>
+          <block type="text_join">
+            <value name="A">
+              <shadow type="text">
+                <field name="TEXT">Hello</field>
+              </shadow>
+            </value>
+            <value name="B">
+              <shadow type="text">
+                <field name="TEXT">MxPi</field>
+              </shadow>
+            </value>
+          </block>
+    
+          <block type="ascii_to_char">
+            <value name="VAR">
+              <shadow type="math_number">
+                <field name="NUM">65</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="char_to_ascii">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">a</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="number_to_text">
+            <value name="VAR">
+              <shadow type="variables_get">
+                <field name="VAR">x</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_length">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_equals_starts_ends">
+            <value name="STR1">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+            <value name="STR2">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_char_at">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello</field>
+              </shadow>
+            </value>
+            <value name="AT">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_substring">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello</field>
+              </shadow>
+            </value>
+            <value name="AT1">
+              <shadow type="math_indexer_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="AT2">
+              <shadow type="math_indexer_number">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_random_char">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hi</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_encode">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Mx</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_capital">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">RaspberryPi</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_center">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello</field>
+              </shadow>
+            </value>
+            <value name="WID">
+              <shadow type="math_number">
+                <field name="NUM">50</field>
+              </shadow>
+            </value>
+            <value name="Symbol">
+              <shadow type="text">
+                <field name="TEXT">*</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_find">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello</field>
+              </shadow>
+            </value>
+            <value name="STR">
+              <shadow type="text">
+                <field name="TEXT">l</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_join_seq">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">--</field>
+              </shadow>
+            </value>
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_replace">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">MxPi</field>
+              </shadow>
+            </value>
+            <value name="STR1">
+              <shadow type="text">
+                <field name="TEXT">Pi</field>
+              </shadow>
+            </value>
+            <value name="STR2">
+              <shadow type="text">
+                <field name="TEXT">RaspberryPi</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_split">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello</field>
+              </shadow>
+            </value>
+            <value name="VAL">
+              <shadow type="text">
+                <field name="TEXT">l</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_strip">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_format_noreturn">
+            <mutation items="1"></mutation>
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello</field>
+              </shadow>
+            </value>
+            <value name="ADD0">
+              <block type="math_random">
+                <field name="TYPE">int</field>
+                <value name="FROM">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <value name="TO">
+                  <shadow type="math_number">
+                    <field name="NUM">100</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+          </block>
+          <block type="text_eval">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="os_system">
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">Hello</field>
+              </shadow>
+            </value>
+          </block>
+        </category>
+        <category name="列 表" css-icon="customIcon fa fa-list" categorystyle="list_category">
+          <block type="lists_create_with"></block>
+          <block type="lists_create_with_noreturn"></block>
+          <block type="variables_set">
+            <field name="VAR">mylist</field>
+            <value name="VALUE">
+              <block type="list_many_input">
+                <field name="CONTENT">1,2,3,4,5</field>
+              </block>
+            </value>
+          </block>
+          <block type="lists_create_with_text"></block>
+          <block type="lists_get_index">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+            <value name="AT">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_get_sublist">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+            <value name="AT1">
+              <shadow type="math_indexer_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="AT2">
+              <shadow type="math_indexer_number">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_2d_get_data_with_col_row">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+            <value name="row">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="col">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_2d_get_col_row_data">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+            <value name="row_start">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="row_end">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="col_start">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="col_end">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_get_random_item">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_get_random_sublist">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+            <value name="VAR">
+              <shadow type="math_number">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="list_trig">
+            <value name="data">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_find">
+            <value name="VAR">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+            <value name="data">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_set_index">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+            <value name="AT">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="TO">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_insert_value">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+            <value name="AT">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="VALUE">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_append_extend">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+            <value name="DATA">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_remove_at">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+            <value name="DATA">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_pop">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+            <value name="VALUE">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_sort">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_reverse">
+            <value name="VAR">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_clear">
+            <value name="VAR">
+              <shadow type="variables_get">
+                <field name="VAR">mylist</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="list_tolist">
+            <value name="VAR">
+              <shadow type="variables_get">
+                <field name="VAR">x</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_zip">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="list_many_input">
+                <field name="CONTENT">0,1,2,3</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="list_many_input">
+                <field name="CONTENT">0,1,2,3</field>
+              </block>
+            </value>
+          </block>
+        </category>
+        <category name="元 组" css-icon="customIcon fa fa-th" categorystyle="tuple_category">
+          <block type="tuple_create_with"></block>
+          <block type="variables_set">
+            <field name="VAR">mytup</field>
+            <value name="VALUE">
+              <block type="tuple_create_with_text_return">
+                <field name="TEXT">1,2,3,4,5</field>
+              </block>
+            </value>
+          </block>
+          <!--<block type="tuple_create_with_text2"></block>-->
+          <block type="tuple_getIndex">
+            <value name="TUP">
+              <shadow type="variables_get">
+                <field name="VAR">mytup</field>
+              </shadow>
+            </value>
+            <value name="AT">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="tuple_get_sublist">
+            <value name="LIST">
+              <shadow type="variables_get">
+                <field name="VAR">mytup</field>
+              </shadow>
+            </value>
+            <value name="AT1">
+              <shadow type="math_indexer_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="AT2">
+              <shadow type="math_indexer_number">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="tuple_get_random_item">
+            <value name="TUP">
+              <shadow type="variables_get">
+                <field name="VAR">mytup</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="tuple_length">
+            <value name="TUP">
+              <shadow type="variables_get">
+                <field name="VAR">mytup</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="tuple_max">
+            <value name="TUP">
+              <shadow type="variables_get">
+                <field name="VAR">mytup</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="tuple_del">
+            <value name="TUP">
+              <shadow type="variables_get">
+                <field name="VAR">mytup</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="tuple_join">
+            <value name="TUP1">
+              <shadow type="variables_get">
+                <field name="VAR">mytup1</field>
+              </shadow>
+            </value>
+            <value name="TUP2">
+              <shadow type="variables_get">
+                <field name="VAR">mytup2</field>
+              </shadow>
+            </value>
+          </block>
+    
+          <block type="tuple_totuple">
+            <value name="VAR">
+              <shadow type="variables_get">
+                <field name="VAR">x</field>
+              </shadow>
+            </value>
+          </block>
+        </category>
+        <category name="字 典" css-icon="customIcon fa fa-book" categorystyle="dict_category">
+          <block type="dicts_create_with"></block>
+          <block type="dicts_keys">
+            <value name="DICT">
+              <shadow type="variables_get">
+                <field name="VAR">mydict</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="dicts_get">
+            <value name="DICT">
+              <shadow type="variables_get">
+                <field name="VAR">mydict</field>
+              </shadow>
+            </value>
+            <value name="KEY">
+              <shadow type="text">
+                <field name="TEXT">key</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="dicts_get_default">
+            <value name="DICT">
+              <shadow type="variables_get">
+                <field name="VAR">mydict</field>
+              </shadow>
+            </value>
+            <value name="KEY">
+              <shadow type="text">
+                <field name="TEXT">key</field>
+              </shadow>
+            </value>
+            <value name="VAR">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="dicts_add_or_change">
+            <value name="DICT">
+              <shadow type="variables_get">
+                <field name="VAR">mydict</field>
+              </shadow>
+            </value>
+            <value name="KEY">
+              <shadow type="text">
+                <field name="TEXT">key</field>
+              </shadow>
+            </value>
+            <value name="VAR">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="dicts_delete">
+            <value name="DICT">
+              <shadow type="variables_get">
+                <field name="VAR">mydict</field>
+              </shadow>
+            </value>
+            <value name="KEY">
+              <shadow type="text">
+                <field name="TEXT">key</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="dicts_pop">
+            <value name="DICT">
+              <shadow type="variables_get">
+                <field name="VAR">mydict</field>
+              </shadow>
+            </value>
+            <value name="KEY">
+              <shadow type="text">
+                <field name="TEXT">key</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="dicts_setdefault">
+            <value name="DICT">
+              <shadow type="variables_get">
+                <field name="VAR">mydict</field>
+              </shadow>
+            </value>
+            <value name="KEY">
+              <shadow type="text">
+                <field name="TEXT">key</field>
+              </shadow>
+            </value>
+            <value name="VAR">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="dicts_clear">
+            <value name="DICT">
+              <shadow type="variables_get">
+                <field name="VAR">mydict</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="dicts_items">
+            <value name="DICT">
+              <shadow type="variables_get">
+                <field name="VAR">mydict</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="dicts_values">
+            <value name="DICT">
+              <shadow type="variables_get">
+                <field name="VAR">mydict</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="dicts_length">
+            <value name="DICT">
+              <shadow type="variables_get">
+                <field name="VAR">mydict</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="dicts_deldict">
+            <value name="DICT">
+              <shadow type="variables_get">
+                <field name="VAR">mydict</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="dicts_todict">
+            <value name="VAR">
+              <shadow type="variables_get">
+                <field name="VAR">x</field>
+              </shadow>
+            </value>
+          </block>
+        </category>
+        <category name="集 合" css-icon="customIcon fa fa-codiepie" categorystyle="catSet_category">
+          <block type="set_create_with"></block>
+          <block type="variables_set">
+            <field name="VAR">s1</field>
+            <value name="VALUE">
+              <block type="set_create_with_text_return">
+                <field name="TEXT">1,2,3,4,5</field>
+              </block>
+            </value>
+          </block>
+          <block type="set_length">
+            <value name="SET">
+              <shadow type="variables_get">
+                <field name="VAR">s1</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="set_pop">
+            <value name="SET">
+              <shadow type="variables_get">
+                <field name="VAR">s1</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="set_operate">
+            <value name="SET1">
+              <shadow type="variables_get">
+                <field name="VAR">s1</field>
+              </shadow>
+            </value>
+            <value name="SET2">
+              <shadow type="variables_get">
+                <field name="VAR">s2</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="set_operate_update">
+            <value name="SET1">
+              <shadow type="variables_get">
+                <field name="VAR">s1</field>
+              </shadow>
+            </value>
+            <value name="SET2">
+              <shadow type="variables_get">
+                <field name="VAR">s2</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="set_add_discard">
+            <value name="SET">
+              <shadow type="variables_get">
+                <field name="VAR">s1</field>
+              </shadow>
+            </value>
+            <value name="data">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="set_update">
+            <value name="SET">
+              <shadow type="variables_get">
+                <field name="VAR">s1</field>
+              </shadow>
+            </value>
+            <value name="VAR">
+              <shadow type="text">
+                <field name="TEXT">MxPi</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="set_sub">
+            <value name="SET1">
+              <shadow type="variables_get">
+                <field name="VAR">s1</field>
+              </shadow>
+            </value>
+            <value name="SET2">
+              <shadow type="variables_get">
+                <field name="VAR">s2</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="set_toset">
+            <value name="VAR">
+              <shadow type="variables_get">
+                <field name="VAR">x</field>
+              </shadow>
+            </value>
+          </block>
+        </category>
+        <category id="catVar" custom="VARIABLE" name="变 量" css-icon="customIcon fa fa-info" categorystyle="vari_category"></category>
+        <category id="catFun" custom="PROCEDURE" color="#6D318E" name="函 数" css-icon="customIcon fa fa-linode" categorystyle="pro_category"></category>
+        <category name="GPIO" css-icon="customIcon fa fa-random" categorystyle="GPIO_category">
+          <block type="GPIO_model"></block>
+          <block type="GPIO_getmode"></block>
+          <block type="GPIO_setup">
+            <value name="PIN">
+              <shadow type="pins"></shadow>
+            </value>
+          </block>
+          <block type="GPIO_out">
+            <value name="PIN">
+              <shadow type="pins"></shadow>
+            </value>
+            <value name="STAT">
+              <shadow type="inout_highlow">
+              </shadow>
+            </value>
+          </block>
+          <block type="GPIO_in">
+            <value name="PIN">
+              <shadow type="pins"></shadow>
+            </value>
+          </block>
+        </category>
+        <category name="PyQt5" categorystyle="GUI_category">
+          <category name="主窗口" css-icon="customIcon fa fa-angle-right" categorystyle="GUI_category">
+            <block type="pyqt5">
+              <statement name="NAME">
+                <block type="pyqt5_init"></block>
+              </statement>
+            </block>
+            <block type="pyqt5_setsize">
+              <value name="WIDTH">
+                <shadow type="math_number">
+                  <field name="NUM">320</field>
+                </shadow>
+              </value>
+              <value name="HIGH">
+                <shadow type="math_number">
+                  <field name="NUM">240</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_setname">
+              <value name="NAME">
+                <shadow type="text">
+                  <field name="TEXT">MainWindow</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_main_move">
+              <value name="X">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="Y">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_QMain_bg_color"></block>
+            <block type="pyqt5_QMain_bg_img"></block>
+            <block type="pyqt5_quit"></block>
+          </category>
+          <category name="标签组件" css-icon="customIcon fa fa-angle-right" categorystyle="GUI_category">
+            <block type="pyqt5_label">
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">Hello World!</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_label_setxywh">
+              <value name="X">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="Y">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="W">
+                <shadow type="math_number">
+                  <field name="NUM">50</field>
+                </shadow>
+              </value>
+              <value name="H">
+                <shadow type="math_number">
+                  <field name="NUM">10</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_label_setfont">
+              <value name="SIZE">
+                <shadow type="math_number">
+                  <field name="NUM">12</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_label_setText">
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">Hello World!</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_label_Enabled"></block>
+          </category>
+          <category name="按钮组件" css-icon="customIcon fa fa-angle-right" categorystyle="GUI_category">
+            <block type="pyqt5_QPushButton">
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">Click me!</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_btn_setfont">
+              <value name="SIZE">
+                <shadow type="math_number">
+                  <field name="NUM">12</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_btn_setxywh">
+              <value name="X">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="Y">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="W">
+                <shadow type="math_number">
+                  <field name="NUM">50</field>
+                </shadow>
+              </value>
+              <value name="H">
+                <shadow type="math_number">
+                  <field name="NUM">10</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_btn_setText">
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">Click me!</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_btn_setCheckable"></block>
+            <block type="procedures_defnoreturns"></block>
+            <block type="pyqt5_QPushButton_Enabled"></block>
+          </category>
+          <category name="滑块组件" css-icon="customIcon fa fa-angle-right" categorystyle="GUI_category">
+          <block type="pyqt5_Slider"></block>
+          <block type="pyqt5_Slider_setxywh">
+            <value name="X">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="Y">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="W">
+              <shadow type="math_number">
+                <field name="NUM">50</field>
+              </shadow>
+            </value>
+            <value name="H">
+              <shadow type="math_number">
+                <field name="NUM">10</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="pyqt5_Slider_setfont">
+            <value name="SIZE">
+              <shadow type="math_number">
+                <field name="NUM">12</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="pyqt5_Slider_model"></block>
+          <block type="pyqt5_Slider_maxmin">
+            <value name="MIN">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="MAX">
+              <shadow type="math_number">
+                <field name="NUM">100</field>
+              </shadow>
+            </value>
+            <value name="STEP">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="pyqt5_Slider_setValue">
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="pyqt5_Slider_Value"></block>
+          <block type="pyqt5_Slider_valueChanged">
+          </block>
+          <block type="procedures_defnoreturns">
+          </block>
+          <block type="pyqt5_Slider_Enabled"></block>
+          </category>
+          <category name="文本框组件" css-icon="customIcon fa fa-angle-right" categorystyle="GUI_category">
+            <block type="pyqt5_lineEdit"></block>
+            <block type="pyqt5_lineEdit_setText">
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">Hello MxPi!</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_lineEdit_text"></block>
+            <block type="pyqt5_lineEdit_textChanged"></block>
+            <block type="pyqt5_PlainTextEdit_init"></block>
+            <block type="pyqt5_plainTextEdit_setText">
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">Hello MxPi!</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_plainTextEdit_addText">
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">Hello MxPi!</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_plainTextEdit_text"></block>
+            <block type="procedures_defnoreturns"></block>
+            <block type="pyqt5_lineEdit_setfont">
+              <value name="SIZE">
+                <shadow type="math_number">
+                  <field name="NUM">12</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_lineEdit_setxywh">
+              <value name="X">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="Y">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="W">
+                <shadow type="math_number">
+                  <field name="NUM">50</field>
+                </shadow>
+              </value>
+              <value name="H">
+                <shadow type="math_number">
+                  <field name="NUM">10</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_lineEdit_readonly"></block>
+            <block type="pyqt5_lineEdit_Enabled"></block>
+          </category>
+          <category name="进度条组件" css-icon="customIcon fa fa-angle-right" categorystyle="GUI_category">
+            <block type="pyqt5_progressBar_init"></block>
+            <block type="pyqt5_progressBar_set_value">
+              <value name="VALUE">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_progressBar_set_maxminvalue">
+              <value name="MIN">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="MAX">
+                <shadow type="math_number">
+                  <field name="NUM">100</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pyqt5_progressBar_set_Orientation"></block>
+          </category>
+          <category name="多线程" css-icon="customIcon fa fa-angle-right" categorystyle="GUI_category">
+          <block type="pyqt5_timer_init"></block>
+          <block type="pyqt5_timer_timeout"></block>
+          <block type="pyqt5_timer_start">
+            <value name="TIME">
+              <shadow type="math_number">
+                <field name="NUM">2000</field>
+              </shadow>
+            </value>
+          </block>
+          </category>
+        </category>
+        <category name="Baidu AI" categorystyle="BaiduAI_category">
+          <category name="待开发" css-icon="customIcon fa fa-angle-right" categorystyle="BaiduAI_category">
+          </category>
+        </category>
+    </xml>
+      </div>
+        <div style="display: flex;justify-content: flex-end;">
+          <button id='upfile' type="button" onclick="upfile()" class="button button-action3 button-box tippy" title="运行/终止程序" style="margin-left: 20px;margin-top: 5px;">
+            <i class="fa fa-play" aria-hidden="true"></i>
+          </button>
+          <button type="button2" onclick="clears()" class="button button-action5 button-box tippy" title="清除终端信息" style="margin-left: 20px;margin-top: 5px;">
+            <i class="fa fa-eraser" aria-hidden="true"></i>
+          </button>
+          <button id='pipmodel' type="button3" class="button button-action6 button-box tippy" title="库管理" style="margin-left: 20px;margin-top: 5px;">
+            <i class="fa fa-dropbox" aria-hidden="true"></i>
+          </button>
+          <button id='filemodel' type="button3" class="button button-action9 button-box tippy" title="文件管理" style="margin-left: 20px;margin-top: 5px;margin-right:30px">
+            <i class="fa fa-folder-open" aria-hidden="true"></i>
+          </button>
+          <div id="authors" class="example_content"><!--关于的模态窗口-->
+            <div style='display: flex;align-items: center; flex-direction: column;'>
+              <div><img src="{% static './img/logo-c.png' %}" style='width:100px;' alt="MX-logo" ></div>
+              <div style="width: 100%;text-align: center;">
+                <p style="font-weight: 700;font-family:-webkit-pictograph;font-size: 25px;margin-top: -14px;">Mx-RaspberryPi<p>
+                <div style="margin-left: 30px;margin-top: 30px;display: flex;align-items: center;flex-direction: row;justify-content: flex-start;">
+                  <p style="font-weight: 700;font-family: fantasy;font-size: 15px;">作者信息:</p>
+                  <p style="margin-left: 15px;">袁运强 中山市三乡镇新圩小学</p>
+                </div>
+                <div style="margin-left: 30px;display: flex;flex-direction: row;align-items: center;margin-top: 15px;">
+                  <p style="font-weight: 700;font-family: fantasy;font-size: 15px;">使用框架:</p>
+                  <p style="margin-left: 15px;">Django-Asgi</p>
+                  <p style="margin-left: 15px;">Mixly4 Copyright © Mixly Team@BNU, CHINA</p>
+                </div>
+                <div style="margin-left: 30px;display: flex;flex-direction: row;align-items: center;margin-top: 15px;">
+                  <p style="font-weight: 700;font-family: fantasy;font-size: 15px;">沟通交流:</p>
+                  <img src="{% static './img/Mx_QQ.png' %}" style='width:100px;margin-left: 14px;' alt="MX-logo" >
+                  <img src="{% static './img/Mx-weixin.jpg' %}" style='width:100px;margin-left: 14px;' alt="MX-logo" >
+                </div>
+              </div>
+            </div>
+          </div>
+			    <div id="pip_content" class="example_content"><!--库管理的模态窗口-->
+                  <div class='pip_install'>
+                    <p class="pip_install_text">安装库</p>
+                    <div class='pip_install2'>
+                      <div class="col-3">
+                        <input id='pip_install_name' class="effect-4" type="text" placeholder="Package name">
+                          <span class="focus-border"></span>
+                      </div>
+                      <button type="button2" onclick="pipinstall()" class="button button-action3 button-box tippy" title="安装库" style="margin-left: -180px;margin-top: 5px;">
+                        <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                <div class="e-scrollbar-box-1" id='pip_cmd'></div>
+          </div>
+          <div id="file_content" class="example_content" style="position:relative;"><!--文件管理的模态窗口-->
+            <div class="loader" id="load-ico">
+              <div class="loading-1"></div>
+              <div class="loading-2">Uploading...</div>
+            </div> 
+            <a href="javascript:;" class="a-upload">
+              <input type="file" name="" id="i1"><i class="fa fa-upload" aria-hidden="true"></i>
+            </a>
+            <div id="file_list" style="height:100% ;"></div>
+          </div>
+          </div>
+          </div>
+        </div>
+        <div>
+            <div class="e-scrollbar-box-2" id='cmd_'>
+            </div>
+        </div>
+      </div>
+
+
+</body>
+<script src="{% static 'js/my_scrollbar.js' %}"></script>
+<script src="{% static 'js/custom_category.js' %}"></script>
+<script src="{% static 'js\blockly_main.js' %}"></script> 
+
+
+</html>

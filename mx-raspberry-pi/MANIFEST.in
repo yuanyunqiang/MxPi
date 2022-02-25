@@ -1,0 +1,7 @@
+graft mxpi/
+graft mxpi/file/
+graft mxpi/static/
+graft mxpi/templates/
+graft mxpi/templates
+include mxpi/db.sqlite3
+include mxpi/cmdpid.log

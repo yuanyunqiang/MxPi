@@ -1,0 +1,40 @@
+.customIcon {
+    padding-left: 10px;
+    padding-top: 2px;
+    width: 30px;
+  }
+  /* Stacks the icon on top of the label. */
+  .blocklyTreeRowContentContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .blocklyTreeRow {
+    height: initial;
+  }
+
+  .blocklyTreeLabel {
+    font-size: 13px;
+    padding: 0 4px;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+  }
+  /* Adds padding around the group of categories and separators. */
+  .blocklyToolboxDiv{
+    padding: 0.4em;
+  }
+  /* Adds space between the categories, rounds the corners and adds space around the label. */
+  .blocklyTreeRow {
+    border-radius: 5px;
+  }
+  .blocklyTreeRowContentContainer{
+    height: 24px;
+    width: 100%;
+  }
+  .blocklyTreeRow{
+    background-color: #c7c9ca;
+    display: flex;
+    margin-bottom: 3px;
+  }

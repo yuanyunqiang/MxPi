@@ -1,0 +1,3 @@
+[console_scripts]
+mxpi = mxpi.__main__:main
+
