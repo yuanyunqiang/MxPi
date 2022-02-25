@@ -1,4 +1,4 @@
-
+![image](https://github.com/yuanyunqiang/MxPi/blob/main/mx-raspberry-pi/mxpi/static/img/logo.png?raw=true)
 #### 1. Installation
 Use pip to install and update the latest version
 
